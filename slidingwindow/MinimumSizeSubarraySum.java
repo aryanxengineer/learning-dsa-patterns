@@ -5,8 +5,9 @@ public class MinimumSizeSubarraySum {
          int low = 0, high = 0, minLength = Integer.MAX_VALUE;
          int sum = 0;
          while (high < nums.length) {
-            sum += nums[high];
-            while (sum >= target) {
+            sum += nums[high];  // include high in the information
+
+            while (sum >= target) {     //  
                 minLength = Math.min(minLength, high - low++ + 1);
                 sum -= nums[low - 1];
             }
